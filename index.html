@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IT Log Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       #logHistory {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  </style>
+  </head>
+<body class="p-3 mb-2 bg-dark-subtle text-white">
+
+  <div class="container-lg">
+<h1>IT Log Generator</h1>
+
+<form>
+
+  <!-- prompt user if there is a ticket -->
+<label for="ticketVal">Ticket or no Ticket</label>
+<select class="form-control" name="ticketExist" id="ticketExist">
+    <option value="enabled" id="yesTicket">Ticket</option>
+    <option value="disabled" id="noTicket">No Ticket</option>
+  </select>
+
+  <!-- Ticket Number -->
+  <label>Ticket Number:</label> 
+  <input class="form-control" type="text" id="ticketNum" value="" required><br>
+
+  <!-- Name of requestor -->
+  <label>Name</label><br>
+<input class="form-control" type="text" id="nameTicket" value="">
+
+<!-- Request/Issue -->
+<label>Request/Issue:</label>
+<textarea  style="resize: none;"  class="form-control" id="request"></textarea><br>
+
+<!-- Actions Taken -->
+<label>Actions Taken:</label>
+<textarea  style="resize: none;" class="form-control" id="solution"></textarea><br>
+
+<!-- Status -->
+ <label>Status:</label>
+<select class="form-control" name="status" id="status">
+    <option value="resolved" id="resolved">Resolved</option>
+    <option value="incomplete" id="incomplete">Incomplete</option>
+  </select>
+  <br>
+  <button class="m-2 btn btn-outline-light" type="reset" value="Clear form">Clear Form</button>
+  
+
+<p>Fill out the form, and click generate to display your log entry.</p>
+</form>
+
+<!-- Buttons -->
+<button class="btn btn-outline-light m-1" onclick="updateLogOutput()">Generate log entry</button>
+<button class="btn btn-outline-light m-1" onclick="copyText()">Copy</button>
+<button class="btn btn-outline-light m-1" onclick="addEntry()">Add Entry</button>
+<button class="btn btn-outline-light m-1" onclick="clearLog()">Clear Log</button>
+<button class="btn btn-outline-light m-1" onclick="copyLog()">Copy Log</button><!-- Moved these above the logHistory output. Again. The version control of a Roblox dev-->
+
+
+<!-- Initial log output. -->
+<div id="output">
+  <p id="logOutput"></p>
+  </div>
+
+<!-- Log history -->
+<h3>Log History</h3>
+
+<div id="logHistory"></div>
+
+<!-- Bootstap script tag -->
+<script src="scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

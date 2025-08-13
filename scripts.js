@@ -131,3 +131,4 @@ function copyLog() {
 
 //Loads local storage everytime you load the page.
 window.onload = loadLog;
+
